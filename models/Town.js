@@ -1,41 +1,34 @@
 // Town.js
 /* Clase que representa un Pueblo Mágico */
-const { Sequelize, DataTypes } = require("sequelize");
-const sequelize = new Sequelize("mysql::memory:");
 
-const Town = sequelize.define(
-  "Town",
-  {
-    Town_ID: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      allowNull: false,
-      autoIncrement: true,
-    },
-    Town_Name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    Town_Biome: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    Town_Weather: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    Town_Incorporation_Year: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    Town_State: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-  },
-  {
-    tableName: "town",
+class Town {
+  constructor(
+    townID,
+    townName,
+    townBiome,
+    townWeather,
+    townIncorporationYear,
+    townState,
+    townAttractions = [],
+    townDishes = [],
+    townEthnics = [],
+    townFestivities = [],
+    townPhotos = [],
+    townReviews = []
+  ) {
+    this.townID = townID;
+    this.townName = townName;
+    this.townState = townState;
+    this.townIncorporationYear = townIncorporationYear;
+    this.townAttractions = townAttractions;
+    this.townFestivities = townFestivities;
+    this.townWeather = townWeather;
+    this.townDishes = townDishes;
+    this.townBiome = townBiome;
+    this.townEthnics = townEthnics;
+    this.townPhotos = townPhotos;
+    this.townReviews = townReviews;
   }
-);
+}
 
 module.exports = Town;
